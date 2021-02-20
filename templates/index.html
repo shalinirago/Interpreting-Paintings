@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="display-3">Interpreting Paintings</h1>
+
+<div class="container-fluid">
+    <p class="lead">
+        Upload a painting from your device and hit on 'Analyse' to read what the computer model has to say about the painting
+    </p>
+    <p class="fw-light">
+        The model first classifies the painting into one of 9 different styles and produces a small snippet describing the style of the painting.
+    </p>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <form id="upload-file" method="post" enctype="multipart/form-data">
+            <label for="imageUpload" class="upload-label">
+                Choose File 
+            </label>
+            <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+            </form>
+            <div class="image-section" style="display:none;">
+                <div class="img-preview">
+                    <div id="imagePreview">
+                    </div>
+                </div>
+            </div>
+        <button type="button" class="btn btn-outline-dark" id="btn-predict">Analyse</button>
+        </div>
+        <div class="col">
+                <div class="loader" style="display:none;"></div>
+                <samp id="result"></samp>
+        </div>
+    </div>  
+</div>
+
+{% endblock %}
